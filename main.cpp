@@ -77,7 +77,8 @@ void show(){
 	point p;
 	for (p.y=0;p.y<n;p.y++){
 		for (p.x=0;p.x<n;p.x++){
-			printf("%2d ",arr[p.y][p.x]);
+			if (arr[p.y][p.x]==0)  printf("%2c ",'*');
+			else printf("%2d ",arr[p.y][p.x]);
 		}
 		cout<<endl;
 	}
