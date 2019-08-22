@@ -10,19 +10,24 @@ struct point{
 	int y;
 };
 point init();
+point find(int x);
 void show();
 bool check();
 
 int main(){
-	int plus;
+	int plus,x;
 	point p,s,tem;
 	s = init();
 	while (!check()){
 		show();
-		cout<<"x y:";
-		cin>>p.x>>p.y;
-		p.x--;p.y--;
-		if (p.x!=s.x&&p.y!=s.y||p.x>3||p.x<0||p.y>3||p.y<0){
+		cout<<"x:";
+		cin>>x;
+		if (x==-1){
+			cout<<"ÍË³ö£¡"<<endl;
+			return 0;
+		}
+		p=find(x);
+		if (p.x!=s.x&&p.y!=s.y||p.x==-1){
 			cout<<"ÊäÈë´íÎó!"<<endl;
 			continue;
 		}
@@ -46,7 +51,6 @@ int main(){
 }
 
 point init(){
-	printf("init\n");
 	srand(time(NULL));
 	point p;
 	for (int i=0;i<n;i++){
@@ -54,12 +58,10 @@ point init(){
 			arr[j][i]=0;
 		}
 	}
-	printf("finish 0\n");
 	for (int i=1;i<=n*n-1;i++){
 		do{
 			p.x=rand()%n;
 			p.y=rand()%n;
-			printf("do while\n");
 		}
 		while (arr[p.y][p.x]!=0);
 		arr[p.y][p.x]=i;
@@ -75,7 +77,7 @@ void show(){
 	point p;
 	for (p.y=0;p.y<n;p.y++){
 		for (p.x=0;p.x<n;p.x++){
-			printf("%3d ",arr[p.y][p.x]);
+			printf("%2d ",arr[p.y][p.x]);
 		}
 		cout<<endl;
 	}
@@ -91,4 +93,15 @@ bool check(){
 			if (arr[p.y][p.x]!=i) return false;
 		}
 	}
+}
+
+point find(int x){
+	point p;
+	for (p.y=0;p.y<n;p.y++){
+		for (p.x=0;p.x<n;p.x++){
+			if (arr[p.y][p.x]==x) return p;
+		}
+	}
+	p.x=-1;
+	return p;
 }
