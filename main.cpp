@@ -19,7 +19,7 @@ int main(){
 	point p,s,tem;
 	s = init();
 	time_t begin,end;
-	begin = time()
+	time(&begin);
 	while (!check()){
 		show();
 		cout<<"x:";
@@ -48,7 +48,7 @@ int main(){
 		arr[p.y][p.x] = 0;
 		s.x=p.x;s.y=p.y;
 	}
-	end = time();
+	time(&end);
 	printf("成功了！\n用时%fs.\n",difftime(begin,end));
 	return 0;
 }
