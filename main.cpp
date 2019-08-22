@@ -18,6 +18,8 @@ int main(){
 	int plus,x;
 	point p,s,tem;
 	s = init();
+	time_t begin,end;
+	begin = time()
 	while (!check()){
 		show();
 		cout<<"x:";
@@ -46,7 +48,8 @@ int main(){
 		arr[p.y][p.x] = 0;
 		s.x=p.x;s.y=p.y;
 	}
-	printf("成功了！\n");
+	end = time();
+	printf("成功了！\n用时%fs.\n",difftime(begin,end));
 	return 0;
 }
 
