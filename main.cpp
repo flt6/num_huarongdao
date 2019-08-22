@@ -9,9 +9,9 @@ struct point{
 	int x;
 	int y;
 };
-bool check(int arr[4][4]);
 point init();
-void show()
+void show();
+bool check();
 
 int main(){
 	int plus;
@@ -42,3 +42,47 @@ int main(){
 	return 0;
 }
 
+point init(){
+	srand(time(NULL));
+	point p;
+	for (int i=0;i<n;i++){
+		for (int j=0;j<n;j++){
+			arr[j][i]=0;
+		}
+	}
+	for (int i=1;i<=n*n-1;i++){
+		do{
+			p.x=rand()%n;
+			p.y=rand()%n;
+		}
+		while (arr[p.y][p.x]==0);
+		arr[p.y][p.x]=i;
+	}
+	for (p.x=0;p.x<n;p.x++){
+		for (p.y=0;p.y<n;p.y++){
+			if (arr[p.y][p.x]==0) return p;
+		}
+	}
+}
+
+void show(){
+	point p;
+	for (p.x=0;p.x<n;p.x++){
+		for (p.y=0;p.y<n;p.y++){
+			cout<<arr[p.y][p.x]<<" ";
+		}
+		cout<<endl;
+	}
+}
+
+bool check(){
+	point p;
+	int i=1;
+	for (p.y=0;p.y<n;p.y++){
+		for (p.x=0;p.x<n;p.x++){
+			if (arr[p.y][p.x]!=i) return false;
+			i++;
+		}
+	}
+	return true;
+}
