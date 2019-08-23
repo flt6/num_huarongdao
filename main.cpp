@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#define n 4
+#include <conio.h>
+#define n 6
 using namespace std;
 
 int arr[n][n];
@@ -24,6 +25,9 @@ int main(){
 		show();
 		cout<<"x:";
 		cin>>x;
+		if (x<1||x>n*n-1){
+			cout<<"输入错误！"<<endl; 
+		}
 		if (x==-1){
 			cout<<"退出！"<<endl;
 			return 0;
@@ -50,6 +54,7 @@ int main(){
 	}
 	time(&end);
 	printf("成功了！\n用时%fs.\n",difftime(begin,end));
+	getch();
 	return 0;
 }
 
