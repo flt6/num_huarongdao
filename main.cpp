@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <conio.h>
-#define n 6
+#define n 4
 using namespace std;
 
 int arr[n][n];
@@ -53,7 +53,7 @@ int main(){
 		s.x=p.x;s.y=p.y;
 	}
 	time(&end);
-	printf("成功了！\n用时%fs.\n",difftime(begin,end));
+	printf("成功了！\n用时%.2fs.\n",difftime(end,begin));
 	getch();
 	return 0;
 }
